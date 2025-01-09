@@ -3,3 +3,6 @@ env/
 
 # Virtual environment variables
 .env
+
+# Challenge
+assign/
