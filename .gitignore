@@ -6,3 +6,6 @@ env/
 
 # Challenge
 assign/
+
+
+.cache/
