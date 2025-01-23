@@ -1,0 +1,20 @@
+### Research on the XZ Backdoor
+
+#### Overview
+The XZ backdoor refers to a malicious backdoor that was introduced into the Linux build of the XZ utility, specifically within the liblzma library, in versions 5.6.0 and 5.6.1. This backdoor was discovered in March 2024 and has been assigned the Common Vulnerabilities and Exposures (CVE) identifier CVE-2024-3094. It has a Common Vulnerability Scoring System (CVSS) score of 10.0, indicating a critical severity level.
+
+#### Discovery and Impact
+The backdoor was identified by software developer Andres Freund, who reported his findings on March 29, 2024. The malicious code was embedded in the upstream tarballs of XZ, utilizing complex obfuscation techniques. This allowed the build process of liblzma to extract a prebuilt object file from a disguised test file within the source code, which subsequently modified specific functions in the library.
+
+The backdoor grants an attacker remote code execution capabilities on affected Linux systems, provided they possess a specific Ed448 private key. Although the backdoored versions had not been widely deployed in production systems at the time of discovery, they were present in development versions of major Linux distributions.
+
+#### Security Recommendations
+In response to the discovery of the backdoor, the U.S. Cybersecurity and Infrastructure Security Agency (CISA) recommended that organizations downgrade to a previous, non-compromised version of XZ Utils. Researchers have also developed an initial backdoor client that can send payloads to machines affected by CVE-2024-3094, although the original Ed448 private signing key remains undisclosed.
+
+#### Broader Implications
+The XZ backdoor has raised significant concerns within the open-source and cybersecurity communities regarding the integrity of open-source software and the risks associated with supply chain attacks. This incident highlights the vulnerabilities that can arise from compromised software supply chains, emphasizing the need for robust security measures in software development and distribution.
+
+### Sources
+1. Wikipedia - [XZ Utils backdoor](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
+2. Wikipedia - [Backdoor (computing)](https://en.wikipedia.org/wiki/Backdoor_(computing))
+3. DuckDuckGo Search Results - Various articles discussing CVE-2024-3094 and the implications of the XZ backdoor.
